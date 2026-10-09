@@ -1,0 +1,24 @@
+name: Jistebnický minipivovar
+version: 0.2.45
+slug: jistebnicky_pivovar
+description: Lokální várky, recepty a fermentační deník s daty RAPT.
+arch:
+  - amd64
+image: ghcr.io/michaloakknj/jistebnicky-pivovar
+init: false
+ingress: true
+ingress_port: 8080
+watchdog: http://[HOST]:[PORT:8080]/api/health
+panel_icon: mdi:beer-outline
+panel_title: Pivovar
+panel_admin: true
+backup: hot
+homeassistant_api: true
+map:
+  - addon_config:rw
+options:
+  rapt_username: ""
+  rapt_api_secret: ""
+schema:
+  rapt_username: email?
+  rapt_api_secret: password?
